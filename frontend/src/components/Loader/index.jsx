@@ -1,3 +1,4 @@
+// Styles
 import { LoaderContainer } from './styles';
 
 export function Loader() {

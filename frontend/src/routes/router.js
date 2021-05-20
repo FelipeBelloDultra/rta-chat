@@ -1,5 +1,7 @@
+// Packages
 import { Route, Switch } from 'react-router-dom';
 
+// Components
 import { Register } from '../pages/Register';
 import { Login } from '../pages/Login';
 import { Home } from '../pages/Home';
