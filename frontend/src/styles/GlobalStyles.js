@@ -7,8 +7,17 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  body {
+    background-color: #010315;
+    color: #FFF;
+  }
+
   body, input, textarea, button {
     font-family: 'Rubik', sans-serif;
+  }
+
+  button {
+    cursor: pointer;
   }
 
   html, body, #root {
@@ -17,5 +26,9 @@ export const GlobalStyles = createGlobalStyle`
 
   html {
     overflow-y: scroll;
+  }
+
+  a {
+    color: inherit;
   }
 `;
