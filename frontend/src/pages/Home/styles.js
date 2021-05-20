@@ -25,7 +25,7 @@ export const Container = styled.div`
     }
 
     span {
-      color: #3B9DC0;
+      color: var(--primary);
       font-weight: bold;
     }
   }
@@ -51,7 +51,7 @@ export const ButtonGroup = styled.div`
     display: inline-flex;
     align-items: center;
     font-size: 14px;
-    color: #FFF;
+    color: var(--white);
     filter: brightness(0.6);
     transition: filter 0.2s;
 

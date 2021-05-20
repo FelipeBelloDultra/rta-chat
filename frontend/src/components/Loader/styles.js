@@ -8,7 +8,7 @@ export const LoaderContainer = styled.div`
 		width: 8px;
 		height: 8px;
 		margin: 1px;
-		background-color: #FFF;
+		background-color: var(--white);
 		border-radius: 100%;
 		display: inline-block;
 		animation: bouncedelay 0.8s infinite ease-in-out;

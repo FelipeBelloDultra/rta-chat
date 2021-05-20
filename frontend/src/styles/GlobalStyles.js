@@ -1,6 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+  :root {
+    --black: #000;
+    --white: #FFF;
+
+    --bg: #010315;
+
+    --primary: #3B9DC0;
+  }
+
   *, *:after, *:before {
     margin: 0;
     padding: 0;
@@ -8,8 +17,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: #010315;
-    color: #FFF;
+    background-color: var(--bg);
+    color: var(--white);
   }
 
   body, input, textarea, button {

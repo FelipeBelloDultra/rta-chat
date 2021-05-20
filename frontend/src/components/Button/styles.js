@@ -6,9 +6,9 @@ export const ButtonContainer = styled.button`
   font-size: 18px;
   font-weight: bold;
   border: 0;
-  color: #FFF;
+  color: var(--white);
   width: 100%;
-  background-color: #3B9DC0;
+  background-color: var(--primary);
   transition: filter 0.2s;
   display: flex;
   align-items: center;
