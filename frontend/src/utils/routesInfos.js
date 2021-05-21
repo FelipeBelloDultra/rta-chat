@@ -1,6 +1,6 @@
 const routesInfos = {
   home: {
-    link: '/home',
+    link: '/',
     name: 'home'
   },
   login: {

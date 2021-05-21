@@ -2,11 +2,11 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-// Resource
-import { Router } from './routes/router';
-
 // Components
 import { Loader } from './components/Loader';
+
+// Resource
+import Routes from './routes';
 
 // Styles
 import { GlobalStyles } from './styles/GlobalStyles';
@@ -29,7 +29,7 @@ export function App() {
         </LoadingContainer>
       ) : (
         <BrowserRouter>
-          <Router />
+          <Routes />
         </BrowserRouter>
       )}
 

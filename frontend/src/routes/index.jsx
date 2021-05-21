@@ -1,15 +1,19 @@
 // Packages
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Switch } from 'react-router-dom';
 
-// Components
+// Resources
+import routesInfos from '../utils/routesInfos';
+import { Route } from './Route';
+
+// Pages
 import { Register } from '../pages/Register';
 import { Login } from '../pages/Login';
 import { Home } from '../pages/Home';
 
-// Resources
-import routesInfos from '../utils/routesInfos';
+// Layouts
+import { None } from '../layouts/None';
 
-export function Router() {
+function Routes() {
   return (
     <Switch
       atEnter={{ opacity: 0, top: -100 }}
@@ -17,18 +21,21 @@ export function Router() {
       atActive={{ opacity: 1, top: 0 }}
     >
       <Route
+        layout={None}
         path={routesInfos.register.link}
         component={Register}
         exact
       />
 
       <Route
+        layout={None}
         path={routesInfos.login.link}
         component={Login}
         exact
       />
 
       <Route
+        layout={None}
         path={routesInfos.home.link}
         component={Home}
         exact
@@ -38,3 +45,5 @@ export function Router() {
     </Switch>
   );
 }
+
+export default Routes;
