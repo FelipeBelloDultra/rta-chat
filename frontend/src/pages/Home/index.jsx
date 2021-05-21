@@ -4,6 +4,9 @@ import { Link, useHistory } from 'react-router-dom';
 // Components
 import { Button } from '../../components/Button';
 
+// Resources
+import routesInfos from '../../utils/routesInfos';
+
 // Styles
 import { Container, ButtonGroup } from './styles';
 
@@ -16,7 +19,7 @@ export function Home() {
   const history = useHistory();
 
   function navigateToLogin() {
-    history.push('/login');
+    history.push(routesInfos.login.link);
   }
 
   return (
@@ -41,7 +44,7 @@ export function Home() {
             <FiLogIn size={20} />
           </Button>
 
-          <Link to="/register">
+          <Link to={routesInfos.register.link}>
             Criar conta
 
             <FiUserPlus size={16} />
