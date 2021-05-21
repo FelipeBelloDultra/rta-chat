@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Header = styled.header`
-  height: 90px;
   border-bottom: 1px solid var(--secondary);
-  margin: 30px 0;
+  margin-bottom: 30px;
+  padding: 60px 0 30px;
 
   div {
     max-width: 1020px;
