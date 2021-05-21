@@ -11,7 +11,11 @@ import routesInfos from '../utils/routesInfos';
 
 export function Router() {
   return (
-    <Switch>
+    <Switch
+      atEnter={{ opacity: 0, top: -100 }}
+      atLeave={{ opacity: 0, top: -100 }}
+      atActive={{ opacity: 1, top: 0 }}
+    >
       <Route
         path={routesInfos.register.link}
         component={Register}
@@ -30,7 +34,7 @@ export function Router() {
         exact
       />
 
-      <Redirect from="/" to="/home" />
+      <Redirect from="/" to={routesInfos.home.link} />
     </Switch>
   );
 }
