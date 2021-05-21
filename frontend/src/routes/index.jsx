@@ -12,23 +12,20 @@ import { Home } from '../pages/Home';
 
 // Layouts
 import { None } from '../layouts/None';
+import { LoginSection } from '../layouts/LoginSection';
 
 function Routes() {
   return (
-    <Switch
-      atEnter={{ opacity: 0, top: -100 }}
-      atLeave={{ opacity: 0, top: -100 }}
-      atActive={{ opacity: 1, top: 0 }}
-    >
+    <Switch>
       <Route
-        layout={None}
+        layout={LoginSection}
         path={routesInfos.register.link}
         component={Register}
         exact
       />
 
       <Route
-        layout={None}
+        layout={LoginSection}
         path={routesInfos.login.link}
         component={Login}
         exact

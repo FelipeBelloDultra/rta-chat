@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     --bg: #010315;
 
     --primary: #3B9DC0;
+    --secondary: #3F3D56;
   }
 
   *, *:after, *:before {
