@@ -4,6 +4,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+// Resources
+import api from '../../services/api';
+
 // Components
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
@@ -33,6 +36,7 @@ const loginFormSchema = yup.object().shape({
 export function Register() {
   // States
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(loginFormSchema),
@@ -43,10 +47,23 @@ export function Register() {
     setShowPassword(prev => !prev);
   }
 
-  function handleSubmitRegister(values, event) {
+  async function handleSubmitRegister(values, event) {
     event.preventDefault();
 
+    setLoading(true);
+
     console.log(values);
+    try {
+      await api.post('/api/users', {
+        name: values.name,
+        email: values.email,
+        password: values.password,
+      });
+    } catch (error) {
+
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -118,6 +135,7 @@ export function Register() {
       <Button
         type="submit"
         className="button-login"
+        loading={loading}
       >
         Criar minha conta
 
