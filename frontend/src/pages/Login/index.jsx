@@ -1,15 +1,18 @@
-// Packages
-import { Link } from 'react-router-dom';
+// Components
+import { Input } from '../../components/Input';
 
-// Resources
-import routesInfos from '../../utils/routesInfos';
+// Assets
+import { FiLogIn } from 'react-icons/fi';
 
 export function Login() {
   return (
     <div>
-      <h1>Login</h1>
-
-      <Link to={routesInfos.register.link}>Ir para o registro</Link>
+      <Input
+        name="Email"
+        icon={() =>
+          <FiLogIn size={22} />
+        }
+      />
     </div>
   );
 }

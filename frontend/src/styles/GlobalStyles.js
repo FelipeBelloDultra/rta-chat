@@ -10,11 +10,14 @@ export const GlobalStyles = createGlobalStyle`
 
     --primary: #3B9DC0;
     --secondary: #3F3D56;
+
+    --error: #d14747;
   }
 
   *, *:after, *:before {
     margin: 0;
     padding: 0;
+    outline: 0;
     box-sizing: border-box;
   }
 
