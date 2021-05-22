@@ -16,9 +16,7 @@ export function App() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoaded(true);
-    }, 1300);
+    setLoaded(true);
   }, []);
 
   return (
