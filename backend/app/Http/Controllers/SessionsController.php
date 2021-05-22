@@ -31,8 +31,11 @@ class SessionsController extends Controller
         $email = $request->email;
         $password = base64_encode($request->password);
 
-        $sessions = Users::where('email',$email)->where('password',$password)->select(array('id_user','name','email'))->get();
-        return $sessions;
-        
+        if(Users::where('email',$email)->where('password',$password)->select(array('id_user','name','email'))->count() > 0){
+            $sessions = Users::where('email',$email)->where('password',$password)->select(array('id_user','name','email'))->get();
+            return response($sessions,200);
+        }else{
+            return response('',400);
+        }
     }
 }
