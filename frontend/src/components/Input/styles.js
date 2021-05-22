@@ -15,8 +15,12 @@ export const Container = styled.div`
       border-color: var(--error);
     `}
 
-  svg {
+  svg:first-child {
     margin-left: 20px;
+  }
+
+  svg:last-child {
+    margin-right: 20px;
   }
 
   input {
@@ -28,6 +32,21 @@ export const Container = styled.div`
     font-size: 16px;
     border-radius: 5px;
     color: var(--white);
+
+    ::placeholder {
+      color: var(--white);
+      opacity: 0.5;
+    }
+
+    :-ms-input-placeholder {
+      color: var(--white);
+      opacity: 0.5;
+    }
+
+    ::-ms-input-placeholder {
+      color: var(--white);
+      opacity: 0.5;
+    }
   }
 `;
 

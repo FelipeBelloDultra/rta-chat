@@ -2,7 +2,8 @@
 import { Container, Label, ErrorMessage } from './styles';
 
 export function Input({
-  icon: Icon,
+  leftIcon: LeftIcon,
+  rightIcon: RightIcon,
   labelText = '',
   name,
   error,
@@ -13,7 +14,7 @@ export function Input({
       {!!labelText && <Label htmlFor={name}>{labelText}</Label>}
 
       <Container isErrored={!!error} >
-        {Icon && <Icon />}
+        {LeftIcon && <LeftIcon />}
 
         <input
           autoComplete="off"
@@ -21,6 +22,8 @@ export function Input({
           id={name}
           {...rest}
         />
+
+        {RightIcon && <RightIcon />}
       </Container>
 
       {!!error && (
