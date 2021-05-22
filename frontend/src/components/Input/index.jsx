@@ -16,6 +16,7 @@ export function Input({
         {Icon && <Icon />}
 
         <input
+          autoComplete="off"
           name={name}
           id={name}
           {...rest}
@@ -23,10 +24,10 @@ export function Input({
       </Container>
 
       {!!error && (
-          <ErrorMessage>
-            {error.message}
-          </ErrorMessage>
-        )}
+        <ErrorMessage>
+          {error.message}
+        </ErrorMessage>
+      )}
     </>
   );
 }
