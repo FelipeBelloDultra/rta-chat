@@ -12,9 +12,8 @@ export const Contianer = styled.form`
   justify-content: space-between;
 
   .button-login {
-    margin-top: 30px;
     width: 250px;
-    margin-right: auto;
+    margin: 30px auto 0;
 
     svg {
       margin-left: 10px;
@@ -32,8 +31,8 @@ export const ButtonShowPassowrd = styled.button`
 
 export const InputGroup = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  align-items: center;
 
   div {
     max-width: 610px;
