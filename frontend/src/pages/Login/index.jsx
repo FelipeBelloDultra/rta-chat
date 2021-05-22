@@ -51,7 +51,7 @@ export function Login() {
           <Input
             error={errors?.email}
             placeholder="john@doe.com..."
-            labelText="Insira seu melhor e-mail"
+            labelText="Insira seu e-mail cadastrado"
             name="email"
             ref={register}
             leftIcon={() =>
@@ -64,7 +64,7 @@ export function Login() {
           <Input
             error={errors?.password}
             placeholder="Digite sua senha"
-            labelText="Insira sua senha"
+            labelText="Insira sua senha cadastrada"
             name="password"
             type={showPassword ? 'text' : 'password'}
             ref={register}
