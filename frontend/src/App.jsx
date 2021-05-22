@@ -13,7 +13,7 @@ import { GlobalStyles } from './styles/GlobalStyles';
 import { LoadingContainer } from './styles';
 
 export function App() {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(true);
 
   useEffect(() => {
     setLoaded(true);
