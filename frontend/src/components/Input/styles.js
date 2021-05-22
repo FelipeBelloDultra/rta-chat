@@ -10,9 +10,16 @@ export const Container = styled.div`
   border-radius: 5px;
   color: var(--white);
 
+  ${props => props.isFocused &&
+    css`
+      border-color: var(--white);
+    `}
+
+
   ${props => props.isErrored &&
     css`
       border-color: var(--error);
+      color: var(--error);
     `}
 
   svg:first-child {
@@ -59,6 +66,6 @@ export const Label = styled.label`
 export const ErrorMessage = styled.span`
   display: inline-block;
   color: var(--error);
-  font-size: 14px;
+  font-size: 12px;
   margin-left: 5px;
 `;
