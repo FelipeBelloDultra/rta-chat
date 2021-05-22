@@ -12,9 +12,9 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
     }
 
     /**
@@ -25,22 +25,27 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $cadastro = Users::create($request->all());
-        return $cadastro;
+        $regras = [
+            'email' => 'required|unique:users',
+            'password' => 'required'
+        ];
+
+        $feedback = [
+            'required' => 'there are mandatory fields not filled in',
+            'email.unique' => 'this email has already been registered'
+        ];
+
+        $request->validate($regras,$feedback);
+
+        $User = new Users;
+
+        $User->name = $request->name;
+        $User->email = $request->email;
+        $User->password = base64_encode($request->password);
+
+        $User->save();
+        return '';
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-
 
     /**
      * Update the specified resource in storage.

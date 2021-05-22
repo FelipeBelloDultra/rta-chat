@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // ROTA USERS QUE APONTA PARA O CONTROLADOR USERS
 Route::apiResource('users','App\Http\Controllers\UsersController');
+
+Route::apiResource('sessions','App\Http\Controllers\SessionsController');
