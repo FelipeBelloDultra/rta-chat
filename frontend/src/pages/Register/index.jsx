@@ -115,7 +115,11 @@ export function Register() {
               <FiLock size={22} />
             }
             rightIcon={() =>
-              <ButtonShowPassowrd type="button" onClick={seePassword}>
+              <ButtonShowPassowrd
+                tabIndex="-1"
+                type="button"
+                onClick={seePassword}
+              >
                 {showPassword ?  <FiEyeOff size={22} /> : <FiEye size={22} />}
               </ButtonShowPassowrd>
             }
