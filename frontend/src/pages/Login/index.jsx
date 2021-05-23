@@ -21,7 +21,7 @@ const loginFormSchema = yup.object().shape({
     .email('Insira um e-mail válido'),
   password: yup
     .string()
-    .required('O campo senha é obrigatório'),
+    .min(8, 'A senha deve ter pelo menos 8 caracteres'),
 });
 
 export function Login() {

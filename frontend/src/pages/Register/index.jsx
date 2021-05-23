@@ -2,10 +2,12 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 
 // Resources
 import api from '../../services/api';
+import routesInfors from '../../utils/routesInfos';
 
 // Components
 import { Input } from '../../components/Input';
@@ -27,7 +29,7 @@ const loginFormSchema = yup.object().shape({
     .email('Insira um e-mail válido'),
   password: yup
     .string()
-    .required('O campo senha é obrigatório'),
+    .min(8, 'A senha deve ter pelo menos 8 caracteres'),
   confirmPassword: yup
     .string()
     .oneOf([yup.ref('password'), null], 'As senhas devem ser iguais')
@@ -37,6 +39,8 @@ export function Register() {
   // States
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const history = useHistory();
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(loginFormSchema),
@@ -52,13 +56,14 @@ export function Register() {
 
     setLoading(true);
 
-    console.log(values);
     try {
       await api.post('/api/users', {
         name: values.name,
         email: values.email,
         password: values.password,
       });
+
+      history.push(routesInfors.login.link);
     } catch (error) {
 
     } finally {
