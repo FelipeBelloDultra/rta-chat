@@ -1,7 +1,8 @@
 // Packages
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Cookie from 'js-cookie';
 import * as yup from 'yup';
 
 // Components
@@ -27,10 +28,18 @@ const loginFormSchema = yup.object().shape({
 export function Login() {
   // States
   const [showPassword, setShowPassword] = useState(false);
+  const emailDefaultValue = Cookie.get('userEmailRegistred');
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(loginFormSchema),
   });
+
+  // Effects
+  useEffect(() => {
+    return () => {
+      Cookie.remove('userEmailRegistred');
+    }
+  }, []);
 
   // Functions
   function seePassword() {
@@ -51,9 +60,10 @@ export function Login() {
           <Input
             error={errors?.email}
             placeholder="john@doe.com..."
-            labelText="Insira seu e-mail cadastrado"
+            labelText={emailDefaultValue ? 'E-mail cadastrado' : 'Insira seu e-mail cadastrado'}
             name="email"
             ref={register}
+            defaultValue={emailDefaultValue || ''}
             leftIcon={() =>
               <FiMail size={22} />
             }

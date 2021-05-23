@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useHistory } from 'react-router-dom';
+import Cookie from 'js-cookie';
 import * as yup from 'yup';
 
 // Resources
@@ -63,7 +64,9 @@ export function Register() {
         password: values.password,
       });
 
-      history.push(routesInfors.login.link);
+      Cookie.set('userEmailRegistred', values.email);
+
+      history.push(routesInfos.login.link);
     } catch (error) {
 
     } finally {
