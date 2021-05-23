@@ -11,6 +11,7 @@ import Routes from './routes';
 // Styles
 import { GlobalStyles } from './styles/GlobalStyles';
 import { LoadingContainer } from './styles';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export function App() {
   const [loaded, setLoaded] = useState(true);

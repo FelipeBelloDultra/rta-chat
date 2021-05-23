@@ -3,12 +3,14 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Cookie from 'js-cookie';
 import * as yup from 'yup';
 
 // Resources
 import api from '../../services/api';
-import routesInfors from '../../utils/routesInfos';
+import routesInfos from '../../utils/routesInfos';
+import toastOptions from '../../utils/toastOptions';
 
 // Components
 import { Input } from '../../components/Input';
@@ -35,6 +37,8 @@ const loginFormSchema = yup.object().shape({
     .string()
     .oneOf([yup.ref('password'), null], 'As senhas devem ser iguais')
 });
+
+toast.configure();
 
 export function Register() {
   // States
@@ -64,11 +68,19 @@ export function Register() {
         password: values.password,
       });
 
+      toast.success('Conta criada com sucesso 👍', toastOptions);
+
       Cookie.set('userEmailRegistred', values.email);
 
       history.push(routesInfos.login.link);
     } catch (error) {
+      if (error?.response?.status === 422) {
+        toast.error('Tente outro e-mail', toastOptions);
 
+        return;
+      }
+
+      toast.error('Algo de errado aconteceu. Tente novamente', toastOptions);
     } finally {
       setLoading(false);
     }
